@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import axios from 'axios'
+import dayjs from 'dayjs'
 
 
 function App() {
@@ -25,13 +26,13 @@ function App() {
 
   const getEmployees = async () => {
     const res = await axios.get(`https://randomuser.me/api/?results=200&nat=us`)
-    console.log(res.data.results)
+    // console.log(res.data.results)
     employeesFull.current = res.data.results;
     setEmployees(employeesFull.current)
   }
   const isLoading = employeesFull.current === null;
   const isEmpty = employees.length === 0;
-  console.log(employeesFull)
+  // console.log(employeesFull)
   return (
     <div className="App">
       {isLoading ? <div>Loading...</div> :
@@ -48,7 +49,19 @@ function App() {
             {isEmpty ? <div>No Results...</div> : null}
             </form>
             <br/>
-
+            <button 
+            // onClick={
+            //         employeesFull.current.sort((a,b)=> {
+            //           const nameA = a.name.first+ '' + a.name.last;
+            //           const nameB = b.name.first+ '' + b.name.last;
+            //           return nameA.toLocaleString().localeCompare(nameB.toLocaleString())
+            //         })
+            //       }
+            >
+              Sort Ascending
+            </button>
+            <button>Sort Descending</button>
+    
             <table className="table">
               <thead>
                 <tr>
@@ -68,7 +81,7 @@ function App() {
                     <td>{employee.name.last}</td>
                     <td>{employee.cell}</td>
                     <td>{employee.email}</td>
-                    <td>{employee.dob.date}</td>
+                    <td>{dayjs(employee.dob.date).format("MM-DD-YYYY")}</td>
                   </tr>
                 </tbody>)}
             </table>
