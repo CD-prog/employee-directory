@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 
 
@@ -48,7 +49,7 @@ function App() {
             </form>
             <br/>
 
-            <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">Picture</th>
