@@ -37,20 +37,41 @@ function App() {
         (
           <>
             <header>
-              <h3>
+              <h2>
                 Employee Directory
-              </h3>
+              </h2>
             </header>
-            
+
             <form>
               <input onChange={(evt) => setSearch(evt.currentTarget.value)} placeholder="Search Employees" type="text" name="name" value={search} />
-            </form>
-            
             {isEmpty ? <div>No Results...</div> : null}
+            </form>
+            <br/>
 
-            <div>
-            {employees.map((employee) => <p key={employee.login.uuid}>{employee.name.first} {employee.name.last}</p>)}
-            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Picture</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Cell</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">DOB</th>
+                </tr>
+              </thead>
+              {employees.map((employee) =>
+                <tbody key={employee.login.uuid}>
+                  <tr>
+                    <th scope="row"><img alt={employee.picture.name} src={employee.picture.thumbnail} /></th>
+                    <td>{employee.name.first}</td>
+                    <td>{employee.name.last}</td>
+                    <td>{employee.cell}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.dob.date}</td>
+                  </tr>
+                </tbody>)}
+            </table>
+
           </>)
       }
     </div>
