@@ -54,12 +54,12 @@ function App() {
 
             <button onClick= {()=>{
 
-                employeesFull.current.sort((a,b)=>{
-                const nameA = a.name.first+ '' + a.name.last;
-                const nameB = b.name.first+ '' + b.name.last;
-                return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
+            //     employeesFull.current.sort((a,b)=>{
+            //     const nameA = a.name.first+ '' + a.name.last;
+            //     const nameB = b.name.first+ '' + b.name.last;
+            //     return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
                                
-             })
+            //  })
             }}
             >
               Sort Ascending
