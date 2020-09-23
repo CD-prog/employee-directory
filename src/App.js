@@ -3,13 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios'
 import dayjs from 'dayjs'
-
+// import Sort from './components/Sort'
 
 function App() {
   const [search, setSearch] = useState('')
   const [employees, setEmployees] = useState([])
   const employeesFull = React.useRef(null)
-
+  
   useEffect(() => {
     getEmployees()
   }, [])
@@ -33,6 +33,7 @@ function App() {
   const isLoading = employeesFull.current === null;
   const isEmpty = employees.length === 0;
   // console.log(employeesFull)
+  
   return (
     <div className="App">
       {isLoading ? <div>Loading...</div> :
@@ -48,18 +49,26 @@ function App() {
               <input onChange={(evt) => setSearch(evt.currentTarget.value)} placeholder="Search Employees" type="text" name="name" value={search} />
             {isEmpty ? <div>No Results...</div> : null}
             </form>
+            
             <br/>
-            <button 
-            // onClick={
-            //         employeesFull.current.sort((a,b)=> {
-            //           const nameA = a.name.first+ '' + a.name.last;
-            //           const nameB = b.name.first+ '' + b.name.last;
-            //           return nameA.toLocaleString().localeCompare(nameB.toLocaleString())
-            //         })
-            //       }
+
+            <button onClick= {()=>{
+
+                employeesFull.current.sort((a,b)=>{
+                const nameA = a.name.first+ '' + a.name.last;
+                const nameB = b.name.first+ '' + b.name.last;
+                return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
+                               
+             })
+            }}
             >
               Sort Ascending
             </button>
+            
+
+
+
+
             <button>Sort Descending</button>
     
             <table className="table">
