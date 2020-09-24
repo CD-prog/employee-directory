@@ -2,6 +2,7 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 # employee-directory
+## GitHub Pages Deployed App : https://cd-prog.github.io/employee-directory/
 
 ## Description
 React application for filtering an employee directory by name. It  also allows users to sort results in ascending or descending alphabetical order
