@@ -2,7 +2,7 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
 # employee-directory
-# Deployed App on GitHub Pages
+## Deployed App on GitHub Pages
 ### https://cd-prog.github.io/employee-directory/
 
 ## Description
