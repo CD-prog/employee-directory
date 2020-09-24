@@ -9,7 +9,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [employees, setEmployees] = useState([])
   const employeesFull = React.useRef(null)
-  
+
   useEffect(() => {
     getEmployees()
   }, [])
@@ -33,49 +33,51 @@ function App() {
   const isLoading = employeesFull.current === null;
   const isEmpty = employees.length === 0;
   // console.log(employeesFull)
-  
+
   return (
     <div className="App">
       {isLoading ? <div>Loading...</div> :
         (
           <>
-            <header>
-              <h2>
+            <header >
+              <h1 >
                 Employee Directory
-              </h2>
+              </h1>
             </header>
 
             <form>
               <input onChange={(evt) => setSearch(evt.currentTarget.value)} placeholder="Search Employees" type="text" name="name" value={search} />
-            {isEmpty ? <div>No Results...</div> : null}
+              {isEmpty ? <div>No Results...</div> : null}
             </form>
-            
-            <br/>
 
-            <button onClick= {()=>{
-                const newData=[...employeesFull.current]
-                newData.sort((a,b)=>{
-                  const nameA = a.name.first+ '' + a.name.last;
-                  const nameB = b.name.first+ '' + b.name.last;
-                  return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
-                })
-                setEmployees(newData)               
+            <br />
+            <h5>Alphabetical Order</h5>
+            <button type="button" class="btn btn-outline-secondary" onClick={() => {
+              const newData = [...employeesFull.current]
+              newData.sort((a, b) => {
+                const nameA = a.name.first + '' + a.name.last;
+                const nameB = b.name.first + '' + b.name.last;
+                return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
+              })
+              setEmployees(newData)
             }
-          }
+            }
             >
-              Sort Ascending
+              Ascending
             </button >
-            <button onClick= {()=>{
-                const newData=[...employeesFull.current]
-                newData.sort((a,b)=>{
-                  const nameA = a.name.first+ '' + a.name.last;
-                  const nameB = b.name.first+ '' + b.name.last;
-                  return nameB.toLocaleString().localeCompare(nameA.toLocaleString());
-                })
-                setEmployees(newData)               
+            <button type="button" class="btn btn-outline-secondary" onClick={() => {
+              const newData = [...employeesFull.current]
+              newData.sort((a, b) => {
+                const nameA = a.name.first + '' + a.name.last;
+                const nameB = b.name.first + '' + b.name.last;
+                return nameB.toLocaleString().localeCompare(nameA.toLocaleString());
+              })
+              setEmployees(newData)
             }
-          }>Sort Descending</button>
-    
+            }>
+              Descending
+            </button>
+            <div><br /></div>
             <table className="table">
               <thead>
                 <tr>
