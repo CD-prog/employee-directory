@@ -49,7 +49,7 @@ function App() {
 
             <br />
             <h5>Alphabetical Order</h5>
-            <button type="button" class="btn btn-outline-secondary" onClick={() => {
+            <button type="button" className="btn btn-outline-secondary" onClick={() => {
               const newData = [...employeesFull.current]
               newData.sort((a, b) => {
                 const nameA = a.name.first + '' + a.name.last;
@@ -62,7 +62,7 @@ function App() {
             >
               Ascending
             </button >
-            <button type="button" class="btn btn-outline-secondary" onClick={() => {
+            <button type="button" className="btn btn-outline-secondary" onClick={() => {
               const newData = [...employeesFull.current]
               newData.sort((a, b) => {
                 const nameA = a.name.first + '' + a.name.last;
