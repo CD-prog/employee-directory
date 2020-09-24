@@ -53,23 +53,28 @@ function App() {
             <br/>
 
             <button onClick= {()=>{
-
-            //     employeesFull.current.sort((a,b)=>{
-            //     const nameA = a.name.first+ '' + a.name.last;
-            //     const nameB = b.name.first+ '' + b.name.last;
-            //     return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
-                               
-            //  })
-            }}
+                const newData=[...employeesFull.current]
+                newData.sort((a,b)=>{
+                  const nameA = a.name.first+ '' + a.name.last;
+                  const nameB = b.name.first+ '' + b.name.last;
+                  return nameA.toLocaleString().localeCompare(nameB.toLocaleString());
+                })
+                setEmployees(newData)               
+            }
+          }
             >
               Sort Ascending
-            </button>
-            
-
-
-
-
-            <button>Sort Descending</button>
+            </button >
+            <button onClick= {()=>{
+                const newData=[...employeesFull.current]
+                newData.sort((a,b)=>{
+                  const nameA = a.name.first+ '' + a.name.last;
+                  const nameB = b.name.first+ '' + b.name.last;
+                  return nameB.toLocaleString().localeCompare(nameA.toLocaleString());
+                })
+                setEmployees(newData)               
+            }
+          }>Sort Descending</button>
     
             <table className="table">
               <thead>
