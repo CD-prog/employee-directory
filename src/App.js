@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios'
 import dayjs from 'dayjs'
-// import Sort from './components/Sort'
 
 function App() {
   const [search, setSearch] = useState('')
@@ -26,14 +25,12 @@ function App() {
 
   const getEmployees = async () => {
     const res = await axios.get(`https://randomuser.me/api/?results=200&nat=us`)
-    // console.log(res.data.results)
     employeesFull.current = res.data.results;
     setEmployees(employeesFull.current)
   }
   const isLoading = employeesFull.current === null;
   const isEmpty = employees.length === 0;
-  // console.log(employeesFull)
-
+  
   return (
     <div className="App">
       {isLoading ? <div>Loading...</div> :
