@@ -6,7 +6,7 @@
 ### https://cd-prog.github.io/employee-directory/
 
 ## Description
-React application for filtering an employee directory by name. It  also allows users to sort results in ascending or descending alphabetical order
+React application for filtering an employee directory by name. It  also allows users to sort results in ascending or descending alphabetical order.\
 Technologies used for this project : React, Node.js, JS/ES6+, Bootstrap
 
 
