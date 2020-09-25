@@ -3,6 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import axios from 'axios'
 import dayjs from 'dayjs'
+import Thead from './components/Thead'
+import Tbody from './components/Tbody'
+
+
 
 function App() {
   const [search, setSearch] = useState('')
@@ -30,7 +34,7 @@ function App() {
   }
   const isLoading = employeesFull.current === null;
   const isEmpty = employees.length === 0;
-  
+
   return (
     <div className="App">
       {isLoading ? <div>Loading...</div> :
@@ -76,30 +80,21 @@ function App() {
             </button>
             <div><br /></div>
             <table className="table">
-              <thead>
-                <tr>
-                  <th scope="col">Picture</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Cell</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">DOB</th>
-                </tr>
-              </thead>
-              {employees.map((employee) =>
-                <tbody key={employee.login.uuid}>
-                  <tr>
+              <Thead />
+              <Tbody>
+                {employees.map((employee) =>
+                  <tr key={employee.login.uuid}>
                     <th scope="row"><img alt={employee.picture.name} src={employee.picture.thumbnail} /></th>
                     <td>{employee.name.first}</td>
                     <td>{employee.name.last}</td>
                     <td>{employee.cell}</td>
                     <td>{employee.email}</td>
                     <td>{dayjs(employee.dob.date).format("MM-DD-YYYY")}</td>
-                  </tr>
-                </tbody>)}
+                  </tr>)}
+              </Tbody>
             </table>
-
-          </>)
+          </>
+        )
       }
     </div>
   );
